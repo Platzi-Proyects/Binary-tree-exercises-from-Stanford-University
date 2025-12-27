@@ -69,6 +69,29 @@ class Binary{
         // Hace el llamado a la fucion mandando el root actual
         return getDepth(this.root);
     }
+
+    search(value) {
+        let current = this.root;  // Empieza desde la raíz
+
+        while (current !== null) { // Que no sea nulo
+
+            if (value === current.value) {
+                return current; // Se encontro
+            }
+
+            // si es menor a la izuqierda
+            if (value < current.value) {
+                current = current.left;
+            }
+            // Si es mayor a la deracha
+            else {
+                current = current.right;
+            }
+        }
+
+        // Si termina el while y llega a aca no se econtro el valor
+        return null;
+    }
 }
 
 const tree = new Binary();
