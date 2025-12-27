@@ -33,6 +33,22 @@ class Binary{
             }
         }
     }
+    totalNodes() {
+        if (!this.root) return 0;
+
+        // función recursiva
+        // Analiza los dos
+        const countNodes = (node) => {
+            if (node === null) return 0;
+
+            // No puede retiornas hasta que complete todo
+            // Analiza los lados de cada uno de los nodos.
+            // Llamando a otra vez la fuacion y queda en stack la otra
+            return 1 + countNodes(node.left) + countNodes(node.right);
+        };
+
+        return countNodes(this.root);
+    }
 }
 
 const tree = new Binary();
