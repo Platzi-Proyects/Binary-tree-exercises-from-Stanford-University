@@ -49,6 +49,26 @@ class Binary{
 
         return countNodes(this.root);
     }
+    maxDepth() {
+        if (!this.root) return 0;
+
+        // Fucnion
+
+        const getDepth = (node) => {
+            // Si no hay nada, hace nada
+            if (node === null) return 0;
+
+            // Calcula la profunddidad de ambas ramas. Usa recursividad para para cambiar el root y analziar los dos lados.
+            const leftDepth = getDepth(node.left);
+            const rightDepth = getDepth(node.right);
+
+            // Usa math para ver cual de los dos es mas grande y usar + 1 del orignal
+            return 1 + Math.max(leftDepth, rightDepth);
+        };
+
+        // Hace el llamado a la fucion mandando el root actual
+        return getDepth(this.root);
+    }
 }
 
 const tree = new Binary();
